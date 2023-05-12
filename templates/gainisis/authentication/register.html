@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+
+<section>
+
+    {% if form.errors %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 mx-auto">
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                <strong>{{ message }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="container col-xl-10 col-xxl-8 px-4 pt-5">
+        <h2 class="display-6 text-center mb-4">Register</h2>
+        <div class="row align-items-center g-lg-5 py-4">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Easy, limitless And advanced investment at your fingertips</h2>
+                <p class="lead">Cryptocurrency investment platform with 5%+ weekly interest & 1.47m investors, engineered by top professionals. Gainisis is the the best place to invest your cryptocurrencies, get started to enjoy the profits!</p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form action="" method="post" class="p-4 border rounded-3 bg-body-tertiary">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    
+                    <!-- <div class="form-floating mb-3">
+                        <input type="text" name="regtrusername" class="form-control" id="regusername" placeholder="name@example.com">
+                        <label for="regusername">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" name="regtremail" class="form-control" id="regemail" placeholder="name@example.com">
+                        <label for="regemail">Email address</label>
+                    </div>
+                    <div class="form-floating mb-1">
+                        <input type="password" name="regtrpsw" class="form-control" id="regpsw" placeholder="Password">
+                        <label for="regpsw">Password</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label class="d-flex gap-1"><input type="checkbox" value="show-password"> Show password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="regtrref" class="form-control" id="regref" placeholder="********">
+                        <label for="regref">Referral Code (optional)</label>
+                        <small class="text-body-secondary">You will not be able to apply a referral code once your account is created.</small>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="regverify" class="form-control" id="regvrf" placeholder="Verification code">
+                        <label for="regvrf">Verification code</label>
+                        <button class="btn float-end mt-1 py-0 px-1 text-primary" type="button">Get code</button>
+                    </div> -->
+
+                    <button class="w-100 btn btn-md btn-primary mt-3" type="submit">Register</button>
+                    <button type="button" onclick="history.back()" class="w-100 btn btn-md btn-outline-secondary mt-3">Back</button>
+                    <hr class="my-3">
+                    <small class="text-body-secondary">By clicking Register, you agree to the <a href="{% url 'terms' %}" class="text-decoration-none text-primary">terms of use</a>.</small>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+

@@ -1,0 +1,34 @@
+{% load static %}
+{% load humanize %}
+<section class="w-100 h-100 position-fixed d-none bg-white overflow-auto" id="support">
+
+    <nav class="container-fluid position-fixed d-flex align-items-center bg-body-secondary gap-4">
+        {% if request.user.is_authenticated %}
+            <div class="bg-body-secondary flex-shrink-0 overflow-hidden nav_accimg">
+                {% if profile.profile_pic %}
+                    <img src="{{profile.profile_pic.url}}" alt="" style="position: relative; width: 100%; object-fit: cover;">
+                {% else %}
+                    <img src="{% static 'img/user.jpg' %}" alt="" style="position: relative; width: 100%; object-fit: cover;">
+                {% endif %}
+            </div>
+        {% endif %}
+        <p class="fs-3 display m-0">Support</p>
+        <div class="ms-auto d-flex align-items-center sprt_close">close
+            <span class="iconify" data-icon="uil:setting" data-inline="false" style="font-size: 24px;"></span>
+        </div>
+    </nav>
+
+    <div class="col-md-10 mx-auto px-2 col-lg-5 support-bdy">
+        <form action="" method="post" class="p-3 border rounded-3 bg-body-tertiary mt-5">
+            <div class="input-group mb-3">
+                <input type="email" name="lgnuname" value="{{profile.email}}" class="form-control" placeholder="email">
+            </div>
+            <div class="input-group mb-1">
+                <textarea name="support_message" cols="30" rows="10" class="form-control hs_msge" placeholder="message"></textarea>
+            </div>
+
+            <button class="w-100 btn btn-md btn-primary mt-3" type="submit">Send</button>
+        </form>
+    </div>
+
+</section>

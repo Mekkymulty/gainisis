@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Withdraw{% endblock title %}
+
+{% block content %}
+
+    <section class="w-100 h-100 d-flex flex-wrap bg-body-warning activepage actwithdraw" id="withdraw">
+
+        <main class="w-100 h-fit mb-5">
+        
+            {% include "partials/navbar.html" %}
+            
+            <div class="container col-xl-10 col-xxl-8 px-4 pt-2">
+                <h2 class="display-6 text-center mb-4">Withdraw</h2>
+                <div class="row align-items-center g-lg-5 pt-lg-4 pb-4">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h4 class="d-none d-sm-block display-5 fw-bold lh-1 mb-3">Easy, limitless And advanced investment at your fingertips</h4>
+                        <p class="lead">Enter amount to withdraw.</p>
+                    </div>
+                    <hr class="d-lg-none"> 
+                    <div class="col-md-10 mx-auto col-lg-6">
+                        <div class="w-100 mt-4 mt-md-0 mb-3 mb-sm-0 d-sm-flex align-items-center">
+                            <p class="text-secondary m-0">Withdrawable balance</p>
+                            <p class="lead m-0 ms-auto overflow-hidden text-truncate"><span>{{profile.user_balance | intcomma}}</span> <span>(USD)</span></p>
+                        </div>
+                        {% if profile.user_wal_btc or profile.user_wal_eth or profile.user_wal_lite or profile.user_wal_dodge %}
+                            <form action="" method="post" class="mt-1 p-4 border rounded-3 bg-body-tertiary">
+                                {% csrf_token %}
+                                {{form.as_p}}
+
+                                <div class="w-100 mt-3">
+                                    <button type="submit" class="w-100 btn btn-md btn-primary mt-3">Withdraw</button>
+                                    <a href="{% url 'index' %}">
+                                        <button type="button" class="w-100 btn btn-md btn-outline-secondary mt-3">Cancel</button>
+                                    </a>
+                                </div>
+                            </form>
+                        {% else %}
+                            <p class="lead fs-3 text-secondary text-center">No wallet yet.</p>
+                            <p class="lead fs-5 text-secondary text-center"><a href="{% url 'account' %}" class="text-decoration-none">Add wallet </a> to proceed</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+    <section class="w-100 h-100 d-flex flex-wrap activepage actindex" id="index">
+
+        <main class="w-100 h-fit mb-5">
+        
+            {% include "partials/navbar.html" %}
+
+            <!-- banner -->
+            <section class="container col-xxl-8 px-2 py-3">
+                <div class="row flex-lg-row-reverse align-items-center g-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="{% static 'img/hero-image.png' %}" class="d-block mx-lg-auto img-fluid d-none d-lg-block" alt="Gainisis" width="700" height="500" loading="lazy">
+                        <img src="{% static 'img/hero-image (2).png' %}" class="d-block mx-lg-auto img-fluid d-lg-none" alt="Gainisis" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Easy, limitless And advanced investment at your fingertips</h2>
+                        <p class="lead">Cryptocurrency investment platform with <mark class="py-0 bg-success bg-opacity-25 rounded-3">5%+</mark> weekly interest & 1.47m investors, engineered by top professionals. <mark class="py-0 bg-secondary bg-opacity-25 rounded-3">Gainisis</mark> is the the best place to invest your cryptocurrencies, get started to enjoy the profits!</p>
+                        <ul class="nav column-gap-3 row-gap-2 d-flex my-3">
+                            <li class="nav-item d-flex align-items-center gap-1 banner_capt">
+                                <div>
+                                    <span class="iconify" data-icon="akar-icons:check" style="font-size: medium;"></span>
+                                </div>
+                                <p class="m-0">Reliable</p>
+                            </li>
+                            <li class="nav-item d-flex align-items-center gap-1 banner_capt">
+                                <div>
+                                    <span class="iconify" data-icon="akar-icons:check" style="font-size: medium;"></span>
+                                </div>
+                                <p class="m-0">Easy access</p>
+                            </li>
+                            <li class="nav-item d-flex align-items-center gap-1 banner_capt">
+                                <div>
+                                    <span class="iconify" data-icon="akar-icons:check" style="font-size: medium;"></span>
+                                </div>
+                                <p class="m-0">Profitable</p>
+                            </li>
+                        </ul>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a href="{% url 'invest' %}">
+                                <button type="button" class="btn btn-primary btn-md px-4 me-md-2">Get Started</button>
+                            </a>
+                            <a href="{% url 'how' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-md px-4">How It Works</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- markets -->
+            <section class="container py-5 d-flex flex-column row-gap-2" id="gain_markets">
+                <div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USD" data-secondary="USD" data-ticker="false" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="false" data-stats="USD"></div>
+                <div class="coinmarketcap-currency-widget" data-currencyid="1027" data-base="USD" data-secondary="USD" data-ticker="false" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="false" data-stats="USD"></div>
+                <div class="coinmarketcap-currency-widget" data-currencyid="74" data-base="USD" data-secondary="USD" data-ticker="false" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="false" data-stats="USD"></div>
+                <div class="coinmarketcap-currency-widget" data-currencyid="2" data-base="USD" data-secondary="USD" data-ticker="false" data-rank="false" data-marketcap="false" data-volume="false" data-statsticker="false" data-stats="USD"></div>
+            </section>
+
+            <!-- investment plans --
+            <section class="container py-5 border-top" id="gain_plans">
+                <h5 class="text-center text-primary">Reliable investment offers</h5>
+                <h2 class="display-6 text-center mb-4">Investment plans</h2>
+
+                <div class="row row-cols-1 row-cols-md-3 mb-4 text-center">
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Bronze</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/bronze plan.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 60px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">5%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>50 - 499 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>5% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Silver</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/silver_PNG17160.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 50px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">7.5%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>500 - 999 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>7.5% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Gold</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/gold plan.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 60px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">10%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>1,000 - 9,999 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>10% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Platinum</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/platinum plan.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 60px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">12.5%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>10,000 - 49,999 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>12.5% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Sapphire</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/sapphire plan.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 50px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">15%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>50,000 - 99,999 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>15% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal">Diamond</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'img/diamond plan.png' %}" class="d-block mx-lg-auto img-fluid mx-auto mb-2" style="width: 50px; height: 50px;">
+                                <h1 class="card-title pricing-card-title">18%<small class="text-body-secondary fw-light">/2 weeks</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>100,000 - 500,000 USD</li>
+                                    <li>2 weeks duration</li>
+                                    <li>18% weekly interest</li>
+                                    <li>10% referral gain</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <h2 class="display-6 text-center mb-4">Compare plans</h2>
+            
+                <div class="table-responsive">
+                    <table class="table text-center">
+                    <thead>
+                        <tr>
+                        <th style="width: 20%;"></th>
+                        <th style="width: 10%;">Interest</th>
+                        <th style="width: 30%;">Duration</th>
+                        <th style="width: 30%;">Price</th>
+                        <th style="width: 10%;">Referral</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row" class="text-start">Bronze</th>
+                        <td>5%</td>
+                        <td>2 weeks</td>
+                        <td>50 - 499 USD</td>
+                        <td>10%</td>
+                        </tr>
+                        <tr>
+                        <th scope="row" class="text-start">Silver</th>
+                        <td>7.5%</td>
+                        <td>2 weeks</td>
+                        <td>500 - 999 USD</td>
+                        <td>10%</td>
+                        </tr>
+                    </tbody>
+            
+                    <tbody>
+                        <tr>
+                        <th scope="row" class="text-start">Gold</th>
+                        <td>10%</td>
+                        <td>2 weeks</td>
+                        <td>1,000 - 9,999 USD</td>
+                        <td>10%</td>
+                        </tr>
+                        <tr>
+                        <th scope="row" class="text-start">Platinum</th>
+                        <td>12.5%</td>
+                        <td>2 weeks</td>
+                        <td>10,000 - 49,999 USD</td>
+                        <td>10%</td>
+                        </tr>
+                        <tr>
+                        <th scope="row" class="text-start">Sapphire</th>
+                        <td>15%</td>
+                        <td>2 weeks</td>
+                        <td>50,000 - 99,999 USD</td>
+                        <td>10%</td>
+                        </tr>
+                        <tr>
+                        <th scope="row" class="text-start">Diamond</th>
+                        <td>18%</td>
+                        <td>2 weeks</td>
+                        <td>100,000 - 500,000 USD</td>
+                        <td>10%</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </section>-->
+
+            <!-- achievements -->
+            <section class="album py-5 bg-body-secondary bg-opacity-50" id="gain_achieve">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+                        <div class="col">
+                            <div class="card overflow-hidden">
+                                <div class="w-100 py-5 d-flex justify-content-center achimg">
+                                    <span class="iconify" data-icon="fluent:people-community-24-regular" style="font-size: 40px;"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="display-6 text-center">10+</h6>
+                                    <p class="lead text-center">Global Communities</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card overflow-hidden">
+                                <div class="w-100 py-5 d-flex justify-content-center achimg">
+                                    <span class="iconify" data-icon="typcn:business-card" style="font-size: 40px;"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="display-6 text-center">63+</h6>
+                                    <p class="lead text-center">Countries Covered</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card overflow-hidden">
+                                <div class="w-100 py-5 d-flex justify-content-center achimg">
+                                    <span class="iconify" data-icon="ant-design:experiment-outlined" style="font-size: 40px;"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="display-6 text-center">1.74m+</h6>
+                                    <p class="lead text-center">Qualified Investors</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card overflow-hidden">
+                                <div class="w-100 py-5 d-flex justify-content-center achimg">
+                                    <span class="iconify" data-icon="ls:globe" style="font-size: 40px;"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="display-6 text-center">4</h6>
+                                    <p class="lead text-center">Years of Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- our team -->
+            {% if team %}
+                <section class="py-5">
+                    <div class="container">
+                        <h2 class="display-6 text-center mb-4" id="gain_pioneer">Our Pioneers</h2>
+                        <div class="row px-2">
+                            
+                            {% for all in team %}
+                                <div class="col-lg-4 p-2">
+                                    <div class="card shadow-lg p-3 d-flex flex-column align-items-center bg-white team-cont">
+                                        {% if request.user.is_authenticated %}
+                                            <div class="flex-shrink-0 overflow-hidden bg-body-secondary team-img">
+                                                <img src="{{all.team_picture.url}}" alt="">
+                                            </div>
+                                        {% endif %}
+                                        <h2 class="fw-normal fs-3 mt-2">{{all.team_name | title}}</h2>
+                                        <p class="text-center m-0">{{all.team_comment}}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+        
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+
+            <!-- features -->
+            <section class="container py-5">
+                <h2 class="display-6 text-center mt-4" id="gain_features">A Great Cryptocurrency Investment Platform</h2>
+                <p class="lead text-secondary text-center mb-5">Why you should choose Gainisis</p>
+            
+                <div class="row featurette">
+                    <div class="col-md-8">
+                        <h2 class="featurette-heading fw-normal lh-1">Secure Storage.</h2>
+                        <p class="lead">We store your digital assets in secure offline storage.</p>
+                        <a href="#" class="text-decoration-none text-primary">
+                            <p>Learn how Gainisis keeps your investment safe and secure <svg width="5" height="9" viewBox="0 0 8 11" fill="none"><path d="M1 10l5-4.5L1 1" stroke="#1652F0" stroke-width="2"></path></svg></p>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" viewBox="0 0 64 64" fill="none" focusable="false"><path d="M56 0H8v50h48V0z" fill="#BFE9FF"></path><path d="M64 10H0v48h64V10z" fill="#56B4FC"></path><path d="M56 10H8v40h48V10z" fill="#1652F0"></path><path d="M10 16H6v8h4v-8zM10 36H6v8h4v-8z" fill="#1652F0"></path><path d="M64 58h-8v6h8v-6zM8 58H0v6h8v-6z" fill="#56B4FC"></path><path d="M41.19 20.81c-5.07-5.07-13.32-5.07-18.38 0-5.06 5.07-5.07 13.32 0 18.38 2.53 2.53 5.86 3.8 9.19 3.8 3.33 0 6.66-1.27 9.19-3.8 5.07-5.07 5.07-13.31 0-18.38zM32 19c2.5 0 5 .85 7.04 2.55l-2.85 2.85A6.99 6.99 0 0032 23c-1.53 0-2.98.5-4.19 1.4l-2.85-2.85A11.03 11.03 0 0132 19zm3.54 14.54c-.95.94-2.2 1.46-3.54 1.46-1.34 0-2.59-.52-3.54-1.46A4.952 4.952 0 0127 30c0-1.33.52-2.59 1.46-3.54.94-.95 2.2-1.46 3.54-1.46 1.34 0 2.59.52 3.54 1.46.95.94 1.46 2.21 1.46 3.54s-.52 2.59-1.46 3.54zM23.55 22.96l2.85 2.85A6.99 6.99 0 0025 30c0 1.53.5 2.98 1.4 4.19l-2.85 2.85a11.018 11.018 0 010-14.08zm1.41 15.49l2.85-2.85a6.969 6.969 0 008.38 0l2.85 2.85a11.018 11.018 0 01-14.08 0zm15.49-1.41l-2.85-2.85c.9-1.2 1.4-2.65 1.4-4.19 0-1.53-.5-2.98-1.4-4.19l2.85-2.85a11.018 11.018 0 010 14.08z" fill="#fff"></path></svg>
+                    </div>
+                </div>
+            
+                <hr class="featurette-divider">
+            
+                <div class="row featurette">
+                    <div class="col-md-8 order-md-2">
+                        <h2 class="featurette-heading fw-normal lh-1">Protected by insurance.</h2>
+                        <p class="lead">Gainisis maintains crypto insurance and all investment balances are covered by FDIC insurance, up to a maximum of $250,000.</p>
+                        <a href="#" class="text-decoration-none text-primary">
+                            <p>Learn how your crypto investments is covered by our insurance policy <svg width="5" height="9" viewBox="0 0 8 11" fill="none"><path d="M1 10l5-4.5L1 1" stroke="#1652F0" stroke-width="2"></path></svg></p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 order-md-1">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" viewBox="0 0 64 64" fill="none" focusable="false"><path d="M56 56h-8v8h8c4.42 0 8-3.58 8-8h-8z" fill="#BFE9FF"></path><path d="M48 56V0H0v56c0 4.42 3.58 8 8 8h48c-4.42 0-8-3.58-8-8z" fill="#56B4FC"></path><path d="M48 56H0c0 4.42 3.58 8 8 8h48c-4.42 0-8-3.58-8-8z" fill="#1652F0"></path><path d="M40 30H8v2h32v-2zM40 36H8v2h32v-2zM40 42H8v2h32v-2zM32 48H16v2h16v-2zM23.5 24.66l-3.24-5.92-5.92-3.24 5.92-3.24 3.24-5.92 3.24 5.92 5.92 3.24-5.92 3.24-3.24 5.92zm-4.99-9.16l3.22 1.76 1.76 3.22 1.76-3.22 3.22-1.76-3.22-1.76-1.76-3.22-1.76 3.22-3.22 1.76z" fill="#fff"></path></svg>
+                    </div>
+                </div>
+            
+                <hr class="featurette-divider">
+            
+                <div class="row featurette">
+                    <div class="col-md-8">
+                        <h2 class="featurette-heading fw-normal lh-1">Industry best practices.</h2>
+                        <p class="lead">Gainisis secures your digital currencies.</p>
+                        <a href="#" class="text-decoration-none text-primary">
+                            <p>Learn how we implement industry best practices for account security <svg width="5" height="9" viewBox="0 0 8 11" fill="none"><path d="M1 10l5-4.5L1 1" stroke="#1652F0" stroke-width="2"></path></svg></p>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" viewBox="0 0 56 64" fill="none" focusable="false"><path d="M56 0H24v64h32V0z" fill="#BFE9FF"></path><path d="M0 8v28c0 13.25 24 24 24 24s24-10.75 24-24V8H0z" fill="#56B4FC"></path><path d="M24 8v52s24-10.75 24-24V8H24z" fill="#1652F0"></path><path d="M7 15v21c0 4.92 8.57 11.72 16.53 15.97l.47.25.47-.25C32.43 47.72 41 40.92 41 36V15H7zm32 2v6H9v-6h30zM24 49.95C15.55 45.35 9 39.28 9 36V25h30v11c0 3.28-6.55 9.35-15 13.95z" fill="#fff"></path></svg>
+                    </div>
+                </div>
+            
+            </section>
+
+        </main>
+
+        <!-- <button type="button" class="btn btn-primary rounded-circle position-fixed px-2 d-flex align-items-center justify-content-center shadow-md support-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25"/><path fill="currentColor" d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>
+        </button> -->
+
+
+        {% include "partials/footer.html" %}
+
+    </section>
+
+{% endblock content %}

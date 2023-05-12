@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock title %}
+
+{% block content %}
+
+    <section class="w-100 h-100 d-flex flex-wrap bg-body-warning" id="about">
+        <div class="w-100 h-fit mb-5">
+            <h4 class="bg-primary">About visdbhk</h4>
+            <a href="{% url 'index' %}">Go to index</a>
+        </div>
+        
+        {% include "partials/footer.html" %}
+
+    </section>
+
+{% endblock content %}
+

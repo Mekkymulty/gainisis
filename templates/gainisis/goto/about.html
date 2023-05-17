@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About us{% endblock title %}
+
+{% block content %}
+
+    <section class="w-100 h-100 d-flex flex-wrap bg-body-warning activepage actdashboard" id="dashboard">
+        <header class="w-100 px-3 py-2 bg-white position-fixed border-bottom">
+            <button class="btn btn-sm btn-primary" type="button" onclick="history.back()">Close</button>
+        </header>
+        <main class="w-100 h-fit py-5 px-sm-5">
+            
+            <div class="px-3">
+                <h2 class="display-6 text-center mt-3 mb-5">About Us</h2>
+                <div class="mb-5 bg-body-tertiary">
+                    <div class="text-center bg-primary bg-opacity-25 py-4">
+                        <h3 class="text-primary">A STREAMLINED CRYPTOCURRENCY EXPERIENCE</h3>
+                        <h4>We offer the platform you need to invest in your future</h4>
+                        <h6>We spend proper time and conduct in extensive research to ensure a risk-free, sustainable plans and programs for our members.</h6>
+                    </div>
+                    <div class="row featurette py-4 container-fluid">
+                        <div class="col-md-4">
+                            <img src="{% static 'img/about-left.png' %}" class="img-fluid" alt="Gainisis" width="300" height="100" loading="lazy">
+                        </div>
+                        <div class="col-md-8 mt-5 mt-md-0">
+                            <h4>INVEST WITH <span class="text-primary">GAINISIS</span></h4>
+                            <p class="lead">Gainisis is a premium cryptocurrency mining platform dedicated to offering the most remarkable experiences. 
+
+                                With over a decade of experience in the financial and advisory sectors, we gained a great deal of knowledge and experience, and are ready to offer professional assistance to individuals.
+
+                                <br><br>
+
+                                Our experience spans from financial management and planning, wealth and investment management, where we demonstrated a proven ability to take an innovative approach to yield the best possible results for our investing clients.
+
+                                <br><br>
+
+                                We bring our history of innovation and experience in the financial sector to Bit Fortune to create a completely new model for the way in which our users interact  with cryptocurrency.
+
+                                After years of research, we have created this platform to offer profitable opportunities with an asset-backed mode of operation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5 bg-body-tertiary">
+                    <div class="text-center bg-primary bg-opacity-25 py-4">
+                        <h4>The Gainisis experience is unlike any other cryptocurrency platform in the world</h4>
+                        <a href="{% url 'invest' %}">
+                            <button type="button" class="btn btn-primary btn-md px-4 mt-3">Get Started</button>
+                        </a>
+                    </div>
+                    <div class="row featurette py-4 container-fluid">
+                        <div class="col-md-4 order-md-2">
+                            <img src="{% static 'img/philos.png' %}" class="img-fluid" alt="Gainisis" width="300" height="100" loading="lazy">
+                        </div>
+                        <div class="col-md-8 order-md-1 mt-5 mt-md-0">
+                            <h4>OUR PHILOSOPHY</h4>
+                            <p class="lead">We view our platform as a partnership. 
+                                
+                                We are not just not here to simply facilitate the nuts and bolts of cryptocurrency mining. 
+                                
+                                We are here to empower our network of participants with strong supporting features, tailored customer support, meaning financial plan that suits the needs of the individuals.
+
+                                <br><br>
+
+                                We work with every client and participant on an individual level in order to determine what financial success looks like to you and to help you clearly define your financial goals.
+
+                                We create a plan accordingly to help you find success on our  platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-body-secondary bg-opacity-25 py-4">
+                <div class="col-md-4 text-center">
+                    <div class="col-md-4 w-100 mb-4 text-center">
+                        <img src="{% static 'img/mining.png' %}" class="img-fluid" alt="Gainisis" width="50" loading="lazy">
+                    </div>
+                    <h4 class="text-center">PROFESSIONAL SERVICE</h4>
+                    <p class="m-0">We aim deliver professional services that exceed our client's expectations.
+
+                        Our investment plans and affiliate programs are designed to turn your financial dreams into reality.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="col-md-4 w-100 mb-4 text-center">
+                        <img src="{% static 'img/trading.png' %}" class="img-fluid" alt="Gainisis" width="50" loading="lazy">
+                    </div>
+                    <h4 class="text-center">UNBEATABLE SUPPORT</h4>
+                    <p class="m-0">We are always available to assist.
+
+                        If you have any question, or need additional information about our platform, please kindly visit the support and we will respond as soon as possible.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="col-md-4 w-100 mb-4 text-center">
+                        <img src="{% static 'img/secure.png' %}" class="img-fluid" alt="Gainisis" width="50" loading="lazy">
+                    </div>
+                    <h4 class="text-center">SAFE AND SECURE EXPERIENCE</h4>
+                    <p class="m-0">We do not share or sell your personal information to anyone.
+
+                        The information encrypt using state-of-the-art technology.
+                    </p>
+                </div>
+            </div>
+
+        </main>
+
+        {% include "partials/footer.html" %}
+
+    </section>
+
+{% endblock content %}
+
+

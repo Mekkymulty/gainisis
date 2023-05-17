@@ -77,14 +77,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Dashboard
-// function dshCpyWal() {
-//     const ivst = document.createRange();
-//     ivst.selectNode(document.getElementById('userref'));
-//     window.getSelection().removeAllRanges();
-//     window.getSelection().addRange(ivst);
-//     document.execCommand('copy');
-//     window.getSelection().removeAllRanges();
-// };
+function dshCpyWal() {
+    const ivst = document.createRange();
+    ivst.selectNode(document.getElementById('userref'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(ivst);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+};
 
 // btc wal
 let showWalIpt = document.getElementsByClassName("showwalipt");
@@ -159,29 +159,52 @@ walLte.forEach((elem) => {
     };
 });
 
-let tranStat = document.getElementsByClassName("tran-stat");
-tStt = Array.from(tranStat);
-tStt.forEach((elem) => {
-    window.onload = () => {
-        if (elem.innerHTML == 'Successful') {elem.classList.add('text-success');};
-        if (elem.innerHTML == 'Pending') {elem.classList.add('text-warning');};
-        if (elem.innerHTML == 'Failed') {elem.classList.add('text-danger');};
-    };
-});
 
 
 // invest
-let ivstNetwork = document.getElementsByClassName("ivstnetwork");
-walNwt = Array.from(ivstNetwork);
-walNwt.forEach((elem) => {
-    elem.addEventListener('click', () => {
+let ivstnetwork = document.querySelector("#ivstnetwork");
+ivstnetwork.addEventListener('input', () => {
+    if (ivstnetwork.value >= 50) {
+        document.getElementById('lowerval').classList.replace('d-block','d-none')
+    };
+});
+let dpstSubmit = document.querySelector("#deposit-submit");
+dpstSubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (ivstnetwork.value >= 50) {
         document.forms['netw_subm'].submit();
-    });
+    } else {
+        document.getElementById('lowerval').classList.replace('d-none','d-block')
+    };
 });
 
-function ivstCpyWal() {
+function BTCwalCopy() {
     const ivst = document.createRange();
-    ivst.selectNode(document.getElementById('invwal'));
+    ivst.selectNode(document.getElementById('btc-deposit-wal'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(ivst);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+};
+function ETHwalCopy() {
+    const ivst = document.createRange();
+    ivst.selectNode(document.getElementById('eth-deposit-wal'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(ivst);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+};
+function DOGEwalCopyz() {
+    const ivst = document.createRange();
+    ivst.selectNode(document.getElementById('doge-deposit-wal'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(ivst);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+};
+function LTCwalCopy() {
+    const ivst = document.createRange();
+    ivst.selectNode(document.getElementById('ltc-deposit-wal'));
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(ivst);
     document.execCommand('copy');
@@ -190,20 +213,114 @@ function ivstCpyWal() {
 
 
 
+// ''''' PLANS '''''
+// bronze
+let bronzesubmit = document.querySelector("#bronzesubmit");
+bronzesubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (bronzeform.value >= 50 && bronzeform.value <= 499) {
+        document.forms['bronzeform'].submit();
+    } else {
+        document.getElementById('bronzeval').classList.replace('d-none','d-block')
+    };
+});
+let bronzeform = document.querySelector("#bronzeform");
+bronzeform.addEventListener('input', () => {
+    if (bronzeform.value >= 50 && bronzeform.value <= 499) {
+        document.getElementById('bronzeval').classList.replace('d-block','d-none')
+    };
+});
+// silver
+let silversubmit = document.querySelector("#silversubmit");
+silversubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (silverform.value >= 500 && silverform.value <= 999) {
+        document.forms['silverform'].submit();
+    } else {
+        document.getElementById('silverval').classList.replace('d-none','d-block')
+    };
+});
+let silverform = document.querySelector("#silverform");
+silverform.addEventListener('input', () => {
+    if (silverform.value >= 500 && silverform.value <= 999) {
+        document.getElementById('silverval').classList.replace('d-block','d-none')
+    };
+});
+// gold
+let goldsubmit = document.querySelector("#goldsubmit");
+goldsubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (goldform.value >= 1000 && goldform.value >= 9999) {
+        document.forms['goldform'].submit();
+    } else {
+        document.getElementById('doldval').classList.replace('d-none','d-block')
+    };
+});
+let goldform = document.querySelector("#goldform");
+goldform.addEventListener('input', () => {
+    if (goldform.value >= 1000 && goldform.value >= 9999) {
+        document.getElementById('doldval').classList.replace('d-block','d-none')
+    };
+});
+// platinum
+let platinumsubmit = document.querySelector("#platinumsubmit");
+platinumsubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (platinumform.value >= 10000 && platinumform.value >= 49000) {
+        document.forms['platinumform'].submit();
+    } else {
+        document.getElementById('platinumval').classList.replace('d-none','d-block')
+    };
+});
+let platinumform = document.querySelector("#platinumform");
+platinumform.addEventListener('input', () => {
+    if (platinumform.value >= 10000 && platinumform.value >= 49000) {
+        document.getElementById('platinumval').classList.replace('d-block','d-none')
+    };
+});
+// sapphire
+let sapphiresubmit = document.querySelector("#sapphiresubmit");
+sapphiresubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (sapphireform.value >= 50000 && sapphireform.value >= 99999) {
+        document.forms['sapphireform'].submit();
+    } else {
+        document.getElementById('sapphireval').classList.replace('d-none','d-block')
+    };
+});
+let sapphireform = document.querySelector("#sapphireform");
+sapphireform.addEventListener('input', () => {
+    if (sapphireform.value >= 50000 && sapphireform.value >= 99999) {
+        document.getElementById('sapphireval').classList.replace('d-block','d-none')
+    };
+});
+// diamond
+let diamondsubmit = document.querySelector("#diamondsubmit");
+diamondsubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (diamondform.value >= 100000 && diamondform.value >= 500000) {
+        document.forms['diamondform'].submit();
+    } else {
+        document.getElementById('diamondval').classList.replace('d-none','d-block')
+    };
+});
+let diamondform = document.querySelector("#diamondform");
+diamondform.addEventListener('input', () => {
+    if (diamondform.value >= 100000 && diamondform.value >= 500000) {
+        document.getElementById('diamondval').classList.replace('d-block','d-none')
+    };
+});
+
+
+document.onload = () => {
+    document.getElementById('msgcont').scrollHeight = 100;
+}
+
 // Footer
 const year = new Date();
 var yearDate =  year.getFullYear();
 window.onload = () => {
     document.getElementById('comyear').innerHTML = yearDate;
 };
-// support
-let supportBtn = document.querySelector('#support-btn');
-supportBtn.addEventListener('click', () => {
-    document.getElementById('support').classList.replace('d-none', 'd-block');
-});
-let supportClose = document.querySelectorAll('.sprt_close, #nav_sprt');
-supportClose.addEventListener('click', () => {
-    document.getElementById('support').classList.replace('d-block', 'd-none');
-});
 
 

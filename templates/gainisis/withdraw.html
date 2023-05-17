@@ -1,28 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 {% load humanize %}
-{% block title %}Withdraw{% endblock title %}
+{% block title %}Withdrawal{% endblock title %}
 
 {% block content %}
 
     <section class="w-100 h-100 d-flex flex-wrap bg-body-warning activepage actwithdraw" id="withdraw">
 
-        <main class="w-100 h-fit mb-5">
+        <main class="w-100 h-fit pb-5">
         
             {% include "partials/navbar.html" %}
             
-            <div class="container col-xl-10 col-xxl-8 px-4 pt-2">
+            <div class="container col-xl-10 col-xxl-8 px-4 pt-2 pb-5">
                 <h2 class="display-6 text-center mb-4">Withdraw</h2>
-                <div class="row align-items-center g-lg-5 pt-lg-4 pb-4">
+                <div class="row align-items-center g-lg-5 pt-lg-4">
                     <div class="col-lg-6 text-center text-lg-start">
                         <h4 class="d-none d-sm-block display-5 fw-bold lh-1 mb-3">Easy, limitless And advanced investment at your fingertips</h4>
                         <p class="lead">Enter amount to withdraw.</p>
                     </div>
-                    <hr class="d-lg-none"> 
+                    <hr class="d-lg-none">
+
+                    
                     <div class="col-md-10 mx-auto col-lg-6">
                         <div class="w-100 mt-4 mt-md-0 mb-3 mb-sm-0 d-sm-flex align-items-center">
                             <p class="text-secondary m-0">Withdrawable balance</p>
-                            <p class="lead m-0 ms-auto overflow-hidden text-truncate"><span>{{profile.user_balance | intcomma}}</span> <span>(USD)</span></p>
+                            <p class="lead m-0 ms-auto overflow-hidden" style="word-wrap: break-word;"><span>{{profile.user_balance | intcomma}}</span> <span>(USD)</span></p>
                         </div>
                         {% if profile.user_wal_btc or profile.user_wal_eth or profile.user_wal_lite or profile.user_wal_dodge %}
                             <form action="" method="post" class="mt-1 p-4 border rounded-3 bg-body-tertiary">
@@ -43,7 +45,21 @@
                     </div>
                 </div>
             </div>
+
         </main>
+
+        <a href="{% url 'support' %}">
+            <button type="button" class="btn btn-primary rounded-circle position-fixed px-2 d-flex align-items-center justify-content-center shadow-md support-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="margin-bottom: -4px;">
+                    <path fill="#fff" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path>
+                    <circle fill="#fff" cx="22.167" cy="13.682" r="1"></circle>
+                    <circle fill="#fff" cx="9.833" cy="13.682" r="1"></circle>
+                    <circle fill="#fff" cx="16" cy="13.682" r="1"></circle>
+                </svg>
+            </button>
+        </a>
+
+        {% include "partials/footer.html" %}
 
     </section>
 

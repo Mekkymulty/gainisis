@@ -5,22 +5,22 @@
 
 {% block content %}
 
-    <section class="w-100 h-100 pb-5 d-flex flex-wrap bg-body-warning activepage actdashboard" id="dashboard">
+    <section class="w-100 h-100 d-flex flex-wrap bg-body-warning activepage actdashboard" id="dashboard">
 
-        <main class="w-100 h-fit mb-5">
+        <main class="w-100 h-fit pb-5">
         
             {% include "partials/navbar.html" %}
             
             <div class="container col-xl-10 col-xxl-8 px-4 pt-2">
                 <h2 class="display-6 text-center mb-4">Dashboard</h2>
-                <div class="row g-lg-5 pt-lg-4 pb-4">
+                <div class="row g-lg-5 pt-lg-4">
                     <div class="col-lg-6">
                         <div class="w-100 d-flex align-items-center gap-2">
                             <div class="position-relative bg-body-secondary flex-shrink-0 overflow-hidden accimg">
                                 {% if profile.profile_pic %}
-                                    <img src="{{profile.profile_pic.url}}" alt="">
+                                    <img src="{{profile.profile_pic.url}}" alt="" class="person-img">
                                 {% else %}
-                                    <img src="{% static 'img/user.jpg' %}" alt="">
+                                    <img src="{% static 'img/user.jpg' %}" alt="" class="person-img">
                                 {% endif %}
                             </div>
                             <p class="lead m-0 fw-bold text-truncate">{{profile.username | title}}</p>
@@ -32,17 +32,17 @@
                         </div>
                         <div class="w-100 mt-4">
                             <p class="text-secondary m-0">Wallet balance</p>
-                            <p class="lead m-0 fw-bold overflow-hidden text-truncate"><span>{{profile.user_balance | intcomma}}</span> <span>(USD)</span></p>
+                            <p class="lead m-0 fw-bold overflow-hidden" style="word-wrap: break-word;"><span>{{profile.user_balance | intcomma}}</span> <span>(USD)</span></p>
                         </div>
-                        <!-- <div class="w-100 mt-3 d-flex align-items-center">
+                        <div class="w-100 mt-3 d-flex align-items-center gap-2">
                             <div class="overflow-hidden">
                                 <p class="text-secondary m-0">Referral link</p>
-                                <p class="lead m-0 text-truncate text-success" id="userref">hbFy8ghy3 bashkdaskdbak</p>
+                                <p class="lead m-0 text-success" id="userref" style="word-wrap: break-word;">hbFy8ghy3bcjhbashkdaskdbak</p><!-- text-truncate -->
                             </div>
                             <div class="btn btn-sm ms-auto px-2 rounded-50 bg-body-secondary" onclick="dshCpyWal()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 16 16" id="document-copy"><path fill="#212121" d="M6.99854 1C5.89397 1 4.99854 1.89543 4.99854 3V11C4.99854 12.1046 5.89397 13 6.99854 13L12 13C13.1046 13 14 12.1046 14 11V5.5H13.9985V4.41421C13.9985 4.01639 13.8405 3.63486 13.5592 3.35355L11.645 1.43934C11.3637 1.15804 10.9821 1 10.5843 1H6.99854ZM12 12L6.99854 12C6.44625 12 5.99854 11.5523 5.99854 11V3C5.99854 2.44772 6.44625 2 6.99854 2H9.99854V3.5C9.99854 4.32843 10.6701 5 11.4985 5H12.9985V6.06135L13 6.06102V11C13 11.5523 12.5523 12 12 12ZM12.7914 4H11.4985C11.2224 4 10.9985 3.77614 10.9985 3.5V2.20711L12.7914 4Z"></path><path fill="#212121" d="M3 4C3 3.44772 3.44772 3 4 3V11C4 12.6569 5.34315 14 7 14L12 14C12 14.5523 11.5523 15 11 15H6.78947C4.6966 15 3 13.3034 3 11.2105V4Z"></path></svg>
                             </div>
-                        </div> -->
+                        </div>
                         {% if crypto %}
                             <div class="w-100 mt-4 ">
                                 <p class="text-secondary m-0">Wallet Address</p>
@@ -53,10 +53,10 @@
                                                 {% if profile.user_wal_btc %}
                                                     <div class="w-100 gap-2">
                                                         <div class="w-100 d-flex align-items-center">
-                                                            <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
+                                                            <h4 class="text-secondary fs-4 fw-bold text-truncate">{{all.crypto_network}}</h4>
                                                             <button type="button" class="btn btn-sm btn-primary ms-auto px-2 showwalipt">Change</button>
                                                         </div>
-                                                        <p class="m-0 text-truncate text-dark fw-bold">{{profile.user_wal_btc}}</p>
+                                                        <p class="m-0 text-dark fw-bold" style="word-wrap: break-word;">{{profile.user_wal_btc}}</p>
                                                     </div>
                                                 {% else %}
                                                     <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
@@ -81,10 +81,10 @@
                                                 {% if profile.user_wal_eth %}
                                                     <div class="w-100 gap-2">
                                                         <div class="w-100 d-flex align-items-center">
-                                                            <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
+                                                            <h4 class="text-secondary fs-4 fw-bold text-truncate">{{all.crypto_network}}</h4>
                                                             <button type="button" class="btn btn-sm btn-primary ms-auto px-2 showethwalipt">Change</button>
                                                         </div>
-                                                        <p class="m-0 text-truncate text-dark fw-bold">{{profile.user_wal_eth}}</p>
+                                                        <p class="m-0 text-dark fw-bold" style="word-wrap: break-word;">{{profile.user_wal_eth}}</p>
                                                     </div>
                                                 {% else %}
                                                     <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
@@ -109,10 +109,10 @@
                                                 {% if profile.user_wal_doge %}
                                                     <div class="w-100 gap-2">
                                                         <div class="w-100 d-flex align-items-center">
-                                                            <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
+                                                            <h4 class="text-secondary fs-4 fw-bold text-truncate">{{all.crypto_network}}</h4>
                                                             <button type="button" class="btn btn-sm btn-primary ms-auto px-2 shdodgewal">Change</button>
                                                         </div>
-                                                        <p class="m-0 text-truncate text-dark fw-bold">{{profile.user_wal_doge}}</p>
+                                                        <p class="m-0 text-dark fw-bold" style="word-wrap: break-word;">{{profile.user_wal_doge}}</p>
                                                     </div>
                                                 {% else %}
                                                     <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
@@ -137,10 +137,10 @@
                                                 {% if profile.user_wal_lite %}
                                                     <div class="w-100 gap-2">
                                                         <div class="w-100 d-flex align-items-center">
-                                                            <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
+                                                            <h4 class="text-secondary fs-4 fw-bold text-truncate">{{all.crypto_network}}</h4>
                                                             <button type="button" class="btn btn-sm btn-primary ms-auto px-2 shwltewal">Change</button>
                                                         </div>
-                                                        <p class="m-0 text-truncate text-dark fw-bold">{{profile.user_wal_lite}}</p>
+                                                        <p class="m-0 text-dark fw-bold" style="word-wrap: break-word;">{{profile.user_wal_lite}}</p>
                                                     </div>
                                                 {% else %}
                                                     <h4 class="text-secondary fs-4 fw-bold">{{all.crypto_network}}</h4>
@@ -170,23 +170,35 @@
                         <div class="w-100 mt-1">
 
                             {% if transactions %}
-                                {% for all in transactions %}
+                                {% for obj in transactions %}
                                     <div class="mt-2 px-3 py-1 d-sm-flex align-items-center gap-2 border rounded-3 bg-body-tertiary">
                                         <div>
-                                            <p class="lead fs-5 fw-bold m-0"><span>{{all.trans_type | title}}</span> (<span>{{all.network}}</span>)</p>
-                                            <p class="text-secondary m-0"><span>{{all.created_at}}</span> - <span>{{all.created_time}}</span></p>
-                                            <p class="m-0 tran-stat">{{all.trans_status}}</p>
-                                            <!-- {% if all.trans_status %}
-                                                <p class="m-0 text-success">{{all.trans_status}}</p>
-                                            {% endif %} -->
+                                            <p class="lead fs-5 fw-bold m-0"><span>{{obj.trans_type | title}}</span> (<span>{{obj.network}}</span>)</p>
+                                            <p class="text-secondary m-0"><span>{{obj.created_at}}</span> - <span>{{obj.created_time}}</span></p>
+                                            
+                                            {% if obj.trans_status == 'Successful' %}
+                                                <p class="m-0 text-success">{{obj.trans_status}}</p>
+                                            {% endif %}
+                                            {% if obj.trans_status == 'Pending' %}
+                                                <p class="m-0 text-warning">{{obj.trans_status}}</p>
+                                            {% endif %}
+                                            {% if obj.trans_status == 'Failed' %}
+                                                <p class="m-0 text-danger">{{obj.trans_status}}</p>
+                                            {% endif %}
                                         </div>
-                                        <p class="m-0 ms-auto d-sm-flex flex-sm-column column-gap-1 text-truncate text-sm-center">
-                                            <span class="text-dark">Amount:</span>
-                                            <span class="text-primary">$<span>{{all.trans_amount | intcomma}}</span></span>
-                                        </p>
+                                        <div class="ms-auto text-end">
+                                            <p class="m-0 d-sm-flex flex-sm-column column-gap-1 text-sm-end">
+                                                <span class="text-dark">Amount:</span>
+                                                <span class="text-primary" style="word-wrap: break-word;">$<span>{{obj.trans_amount | intcomma}}</span></span>
+                                            </p>
+                                            <span class="text-secondary" style="word-wrap: break-word;"><span>{{obj.crypto_val}}</span> <span>{{obj.network}}</span></span>
+                                        </div>
                                     </div>
                                 {% endfor %}
-                                <!-- if transactions is greater 5 in js --><p class="lead fs-5 text-secondary text-center mt-3">See all <a href="{% url 'transactions' %}" class="text-decoration-none">transactions</a></p>
+
+                                {% if gt_tr > 5 %}
+                                    <p class="lead fs-5 text-secondary text-center mt-3">See all <a href="{% url 'transactions' %}" class="text-decoration-none">transactions</a></p>
+                                {% endif %}
                             {% else %}
                                 <p class="lead fs-3 text-secondary text-center">No transaction yet.</p>
                                 <p class="lead fs-5 text-secondary text-center">Make an <a href="{% url 'invest' %}" class="text-decoration-none">investment?</a></p>
@@ -197,6 +209,19 @@
                 </div>
             </div>
         </main>
+
+        <a href="{% url 'support' %}">
+            <button type="button" class="btn btn-primary rounded-circle position-fixed px-2 d-flex align-items-center justify-content-center shadow-md support-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="margin-bottom: -4px;">
+                    <path fill="#fff" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path>
+                    <circle fill="#fff" cx="22.167" cy="13.682" r="1"></circle>
+                    <circle fill="#fff" cx="9.833" cy="13.682" r="1"></circle>
+                    <circle fill="#fff" cx="16" cy="13.682" r="1"></circle>
+                </svg>
+            </button>
+        </a>
+
+        {% include "partials/footer.html" %}
 
     </section>
 

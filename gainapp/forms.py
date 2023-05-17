@@ -14,7 +14,6 @@ class CreateProfile(forms.ModelForm):
         model = Profile
         fields = ['username', 'email', 'password', 'password2', 'referral']
         
-
 class UpdateUser(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -32,6 +31,13 @@ class UpdateProfile(forms.ModelForm):
             'profile_pic':forms.FileInput(attrs={'class':'form-control'}),
         }
 
+
+# # Support
+class Chat(forms.ModelForm):
+    chat_message = forms.CharField(widget=forms.Textarea(attrs={'class':'hs_msge','placeholder':'Type a message'}), label='')
+    class Meta:
+        model = Profile
+        fields = ['chat_message']
 
 # # Dashboard
 class UpdateBTCWal(forms.ModelForm):
@@ -59,10 +65,11 @@ class UpdateLTEWal(forms.ModelForm):
 # # Investment
 class selectNetwork(forms.ModelForm):
     CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
-    select_network = forms.ChoiceField(widget=forms.RadioSelect(attrs={'class':'ivstnetwork'}), choices=CHOICES)
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'ivstnetwork'}), label='Deposit amount - (minimum of $50)')
     class Meta:
         model = Profile
-        fields = ['select_network']
+        fields = ['selected_network', 'invested_amount']
 
 
 # # Withdrawal
@@ -73,4 +80,65 @@ class withdrawForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['network', 'withdrawal_amount']
+
+
+
+# # PLANS
+# # PLANS
+
+# Bronze
+class bronze_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'bronzeform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+# Silver
+class silver_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'silverform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+# Gold
+class gold_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'goldform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+# Platinum
+class platinum_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'platinumform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+# Sapphire
+class sapphire_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'sapphireform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+# Diamond
+class diamond_form(forms.ModelForm):
+    CHOICES = [("1", "Bitcoin"), ("2", "Ethereum"), ("3", "Dogecoin"), ("4", "Litecoin")]
+    selected_network = forms.ChoiceField(widget=forms.RadioSelect(), choices=CHOICES)
+    invested_amount = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control', 'id':'diamondform'}), label='Deposit amount')
+    class Meta:
+        model = Profile
+        fields = ['selected_network', 'invested_amount']
+
+
 

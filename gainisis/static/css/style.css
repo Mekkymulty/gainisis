@@ -4,8 +4,6 @@
     --secHeight: 36px;
     --mainColor: #84ff00 !important;
     --dark: #1f1f1f !important;
-    --fairDark: #e8ebee !important;
-    --alertBg: rgba(28, 35, 50, 0.4) !important;
     --fntSize: 24px;
 }
 body {
@@ -17,7 +15,7 @@ body {
     overflow-y: auto;
     overflow: hidden;
 }
-img {
+.person-img {
     height: 100%;
     width: 100%;
     position: relative;
@@ -57,9 +55,6 @@ img {
     position: relative;
     overflow-y: auto;
 }
-.alert_bg {
-    background-color: var(--alertBg);
-}
 
 /* banner */
 .banner_capt {
@@ -75,7 +70,6 @@ img {
     background-color: var(--dark);
     color: var(--mainColor);
 }
-
 /* achievement */
 .achimg {
     color: var(--mainColor);
@@ -86,9 +80,6 @@ img {
     background: linear-gradient(left, #c9d6e5, #8696ac);
 }
 /* our team */
-.team-cont {
-    box-shadow: 0 2px 2px solid red;
-}
 .team-img {
     height: calc(var(--mainHeight) * 2);
     width: calc(var(--mainHeight) * 2);
@@ -108,10 +99,6 @@ img {
     width: calc(var(--mainHeight) * 2);
     border-radius: 50%;
 }
-/*! to do */
-#selectimg:focus {
-    background: none !important;
-}
 
 
 
@@ -123,21 +110,33 @@ footer {
     height: var(--mainHeight);
     width: var(--mainHeight);
     right: 20px;
-    bottom: var(--mainHeight);
+    bottom: 40px;
 }
 
 /* SUPPORT */
 #support {
-    position: fixed;
-    z-index: 9;
+    padding-bottom: calc(var(--mainHeight) * 2);
 }
 #support > nav {
     height: var(--mainHeight);
 }
-.support-bdy {
-    padding: var(--mainHeight) 0;
+.chat-bar {
+    width: fit-content;
+    max-width: 75%;
+}
+#support > footer > form {
+    height: fit-content;
 }
 .hs_msge {
     max-height: 100px;
-    max-height: 400px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    -ms-overflow-style: var(--scroll-bar-display);
+    scrollbar-width: var(--scroll-bar-display);
 }
+.hs_msge::-webkit-scrollbar {
+    display: var(--scroll-bar-display);
+}
+

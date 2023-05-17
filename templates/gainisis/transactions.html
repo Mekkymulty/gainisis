@@ -1,1 +1,50 @@
-transactions
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Transactions{% endblock title %}
+
+{% block content %}
+
+    <section class="w-100 h-100 d-flex flex-wrap bg-body-warning activepage actdashboard" id="dashboard">
+        <header class="w-100 px-3 py-2 bg-white position-fixed border-bottom">
+            <button class="btn btn-sm btn-primary" type="button" onclick="history.back()">Close</button>
+        </header>
+        <main class="w-100 h-fit py-5 px-3 px-sm-5">
+            
+            <h2 class="display-6 text-center mb-4 mt-2">Transactions</h2>
+            <div class="mx-auto col-lg-6">
+                <p class="text-secondary m-0">Transaction History</p>
+                <div class="w-100 mt-1">
+                    
+                    {% for obj in transact %}
+                        <div class="mt-2 px-3 py-1 d-sm-flex align-items-center gap-2 border rounded-3 bg-body-tertiary">
+                            <div>
+                                <p class="lead fs-5 fw-bold m-0"><span>{{obj.trans_type | title}}</span> (<span>{{obj.network}}</span>)</p>
+                                <p class="text-secondary m-0"><span>{{obj.created_at}}</span> - <span>{{obj.created_time}}</span></p>
+                                
+                                {% if obj.trans_status == 'Successful' %}
+                                    <p class="m-0 text-success">{{obj.trans_status}}</p>
+                                {% endif %}
+                                {% if obj.trans_status == 'Pending' %}
+                                    <p class="m-0 text-warning">{{obj.trans_status}}</p>
+                                {% endif %}
+                                {% if obj.trans_status == 'Failed' %}
+                                    <p class="m-0 text-danger">{{obj.trans_status}}</p>
+                                {% endif %}
+                            </div>
+                            <div class="ms-auto text-end">
+                                <p class="m-0 d-sm-flex flex-sm-column column-gap-1 text-sm-end">
+                                    <span class="text-dark">Amount:</span>
+                                    <span class="text-primary" style="word-wrap: break-word;">$<span>{{obj.trans_amount | intcomma}}</span></span>
+                                </p>
+                                <span class="text-secondary" style="word-wrap: break-word;"><span>{{obj.crypto_val}}</span> <span>{{obj.network}}</span></span>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </main>
+    </section>
+
+{% endblock content %}

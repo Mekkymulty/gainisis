@@ -71,21 +71,7 @@ class Transaction(models.Model):
     crypto_val = models.DecimalField(max_digits=24, decimal_places=7, default=0)
 
     def __str__(self):
-        return f'Transacted:____{str(self.created_at)}____-____{self.investor}____({self.trans_type} ({self.network}) - ${str(self.trans_amount)})____//____{str(self.trans_status)}'
-    
-
-# # Support messages
-CHAT_TYPE = [("Admin", "Admin"), ("User", "User")]
-class Support(models.Model):
-    chat_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-    message_type = models.CharField(max_length=255, choices=CHAT_TYPE, default='Admin')
-    chat_message = models.TextField(max_length=255)
-    chated_at = models.DateField(auto_now_add=True)
-    chated_time = models.TimeField(auto_now_add=True)
-    new_message = models.BooleanField(default=False)
-
-    def __str__(self)-> str:
-        return f'{self.chat_profile}:__on__{self.chated_at}____//____{self.message_type}'
+        return f'{str(self.created_at)}____-____{self.investor}____({self.trans_type} ({self.network}) - ${str(self.trans_amount)})____//____{str(self.trans_status)}'
 
 
 # # Our Team

@@ -1,0 +1,32 @@
+{% load static %}
+
+<section class="w-100 h-100 fixed-top z-3 pt-5 d-none bg-white overflow-auto" id="support">
+
+    <nav class="container-fluid position-fixed top-0 d-flex align-items-center bg-body-secondary">
+        <div onclick="supportClose()" class="p-1">
+            <span class="iconify" data-icon="mdi:close" data-inline="false" style="font-size: 26px;"></span>
+        </div>
+        <div class="bg-body-secondary flex-shrink-0 overflow-hidden ms-4 nav_accimg">
+            <img src="{% static 'img/user.jpg' %}" alt="" style="position: relative; width: 100%; object-fit: cover;">
+        </div>
+        <p class="fs-3 display m-0 ms-2">Support</p>
+    </nav>
+
+    <main class="w-100 h-100 px-3">
+        <div class="col-md-10 mx-auto col-lg-6 py-5">
+            <form action="" method="post">
+                {% csrf_token %}
+                
+                <input type="hidden" name="" value="{{profile.email}}" class="form-control mt-4" id="user_email" placeholder="Enter your email" required>
+                <textarea cols="100" rows="10" name="Message" class="form-control mt-3" id="support_message" placeholder="Type a message" required></textarea> 
+
+                <button type="submit" class="w-100 btn btn-md btn-primary mt-3" onclick="supportSend()">Send</button>
+            </form>
+        </div>
+    </main>
+
+</section>
+
+
+
+

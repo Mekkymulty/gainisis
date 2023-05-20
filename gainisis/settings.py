@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-#DOTENV
+# # DOTENV
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -31,13 +31,13 @@ SECRET_KEY = str(os.getenv('MEKGAIN_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.86.85.194', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

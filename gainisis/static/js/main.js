@@ -77,6 +77,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Dashboard
+function dshShare() {
+    navigator.share({
+        title: document.title,
+        // text: "Hello World",
+        text: document.getElementById('userref').innerHTML,
+        url: window.location.href
+    })
+    // .then(() => console.log('Successful share'))
+    // .catch(error => console.log('Error sharing:', error));
+};
 function dshCpyWal() {
     const ivst = document.createRange();
     ivst.selectNode(document.getElementById('userref'));
@@ -215,6 +225,13 @@ function LTCwalCopy() {
 
 // ''''' PLANS '''''
 // bronze
+let bronzeform = document.querySelector("#bronzeform");
+bronzeform.addEventListener('input', () => {
+    alert('rtyuio')
+    if (bronzeform.value >= 50 && bronzeform.value <= 499) {
+        document.getElementById('bronzeval').classList.replace('d-block','d-none')
+    };
+});
 let bronzesubmit = document.querySelector("#bronzesubmit");
 bronzesubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -224,13 +241,13 @@ bronzesubmit.addEventListener('click', (e) => {
         document.getElementById('bronzeval').classList.replace('d-none','d-block')
     };
 });
-let bronzeform = document.querySelector("#bronzeform");
-bronzeform.addEventListener('input', () => {
-    if (bronzeform.value >= 50 && bronzeform.value <= 499) {
-        document.getElementById('bronzeval').classList.replace('d-block','d-none')
+// silver
+let silverform = document.querySelector("#silverform");
+silverform.addEventListener('input', () => {
+    if (silverform.value >= 500 && silverform.value <= 999) {
+        document.getElementById('silverval').classList.replace('d-block','d-none')
     };
 });
-// silver
 let silversubmit = document.querySelector("#silversubmit");
 silversubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -240,13 +257,13 @@ silversubmit.addEventListener('click', (e) => {
         document.getElementById('silverval').classList.replace('d-none','d-block')
     };
 });
-let silverform = document.querySelector("#silverform");
-silverform.addEventListener('input', () => {
-    if (silverform.value >= 500 && silverform.value <= 999) {
-        document.getElementById('silverval').classList.replace('d-block','d-none')
+// gold
+let goldform = document.querySelector("#goldform");
+goldform.addEventListener('input', () => {
+    if (goldform.value >= 1000 && goldform.value >= 9999) {
+        document.getElementById('doldval').classList.replace('d-block','d-none')
     };
 });
-// gold
 let goldsubmit = document.querySelector("#goldsubmit");
 goldsubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -256,13 +273,13 @@ goldsubmit.addEventListener('click', (e) => {
         document.getElementById('doldval').classList.replace('d-none','d-block')
     };
 });
-let goldform = document.querySelector("#goldform");
-goldform.addEventListener('input', () => {
-    if (goldform.value >= 1000 && goldform.value >= 9999) {
-        document.getElementById('doldval').classList.replace('d-block','d-none')
+// platinum
+let platinumform = document.querySelector("#platinumform");
+platinumform.addEventListener('input', () => {
+    if (platinumform.value >= 10000 && platinumform.value >= 49000) {
+        document.getElementById('platinumval').classList.replace('d-block','d-none')
     };
 });
-// platinum
 let platinumsubmit = document.querySelector("#platinumsubmit");
 platinumsubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -272,13 +289,13 @@ platinumsubmit.addEventListener('click', (e) => {
         document.getElementById('platinumval').classList.replace('d-none','d-block')
     };
 });
-let platinumform = document.querySelector("#platinumform");
-platinumform.addEventListener('input', () => {
-    if (platinumform.value >= 10000 && platinumform.value >= 49000) {
-        document.getElementById('platinumval').classList.replace('d-block','d-none')
+// sapphire
+let sapphireform = document.querySelector("#sapphireform");
+sapphireform.addEventListener('input', () => {
+    if (sapphireform.value >= 50000 && sapphireform.value >= 99999) {
+        document.getElementById('sapphireval').classList.replace('d-block','d-none')
     };
 });
-// sapphire
 let sapphiresubmit = document.querySelector("#sapphiresubmit");
 sapphiresubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -288,13 +305,13 @@ sapphiresubmit.addEventListener('click', (e) => {
         document.getElementById('sapphireval').classList.replace('d-none','d-block')
     };
 });
-let sapphireform = document.querySelector("#sapphireform");
-sapphireform.addEventListener('input', () => {
-    if (sapphireform.value >= 50000 && sapphireform.value >= 99999) {
-        document.getElementById('sapphireval').classList.replace('d-block','d-none')
+// diamond
+let diamondform = document.querySelector("#diamondform");
+diamondform.addEventListener('input', () => {
+    if (diamondform.value >= 100000 && diamondform.value >= 500000) {
+        document.getElementById('diamondval').classList.replace('d-block','d-none')
     };
 });
-// diamond
 let diamondsubmit = document.querySelector("#diamondsubmit");
 diamondsubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -304,17 +321,27 @@ diamondsubmit.addEventListener('click', (e) => {
         document.getElementById('diamondval').classList.replace('d-none','d-block')
     };
 });
-let diamondform = document.querySelector("#diamondform");
-diamondform.addEventListener('input', () => {
-    if (diamondform.value >= 100000 && diamondform.value >= 500000) {
-        document.getElementById('diamondval').classList.replace('d-block','d-none')
+
+
+// Support
+function supportOpen() {
+    document.getElementById('support').classList.replace('d-none', 'd-block')
+};
+function supportClose() {
+    document.getElementById('support').classList.replace('d-block', 'd-none')
+};
+function supportSend() {
+    if (document.getElementById('user_email').value.length > 0 && document.getElementById('support_message').value.length > 0) {
+        var email = 'gainisis2@gmail.com'
+        var subject = "Email support";
+        var variableList = document.getElementById('support_message').value;
+        var body = variableList == "Other" ? document.getElementById("newVariable").value : variableList;
+        window.location = "mailto:" + email + "?subject=" + subject + "&body=" + body;
     };
-});
+};
 
 
-document.onload = () => {
-    document.getElementById('msgcont').scrollHeight = 100;
-}
+
 
 // Footer
 const year = new Date();

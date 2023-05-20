@@ -32,13 +32,6 @@ class UpdateProfile(forms.ModelForm):
         }
 
 
-# # Support
-class Chat(forms.ModelForm):
-    chat_message = forms.CharField(widget=forms.Textarea(attrs={'class':'hs_msge','placeholder':'Type a message'}), label='')
-    class Meta:
-        model = Profile
-        fields = ['chat_message']
-
 # # Dashboard
 class UpdateBTCWal(forms.ModelForm):
     user_wal_btc = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))

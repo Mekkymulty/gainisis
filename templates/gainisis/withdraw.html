@@ -48,18 +48,18 @@
 
         </main>
 
-        <a href="{% url 'support' %}">
-            <button type="button" class="btn btn-primary rounded-circle position-fixed px-2 d-flex align-items-center justify-content-center shadow-md support-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="margin-bottom: -4px;">
-                    <path fill="#fff" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path>
-                    <circle fill="#fff" cx="22.167" cy="13.682" r="1"></circle>
-                    <circle fill="#fff" cx="9.833" cy="13.682" r="1"></circle>
-                    <circle fill="#fff" cx="16" cy="13.682" r="1"></circle>
-                </svg>
-            </button>
-        </a>
+        <button type="button" onclick="supportOpen()" class="btn btn-primary rounded-circle position-fixed px-2 d-flex align-items-center justify-content-center shadow-md support-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="margin-bottom: -4px;">
+                <path fill="#fff" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path>
+                <circle fill="#fff" cx="22.167" cy="13.682" r="1"></circle>
+                <circle fill="#fff" cx="9.833" cy="13.682" r="1"></circle>
+                <circle fill="#fff" cx="16" cy="13.682" r="1"></circle>
+            </svg>
+        </button>
 
         {% include "partials/footer.html" %}
+
+        {% include "partials/support.html" %}
 
     </section>
 

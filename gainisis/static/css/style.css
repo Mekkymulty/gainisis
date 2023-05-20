@@ -114,11 +114,11 @@ footer {
 }
 
 /* SUPPORT */
-#support {
-    padding-bottom: calc(var(--mainHeight) * 2);
-}
 #support > nav {
     height: var(--mainHeight);
+}
+#msgcont {
+    padding-bottom: calc(var(--mainHeight) * 2);
 }
 .chat-bar {
     width: fit-content;

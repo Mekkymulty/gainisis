@@ -1064,29 +1064,8 @@ def invest_ltc(request):
 def support(request):
     user = request.user.profile
 
-    spform = Chat()
-    support = Support.objects.all().filter(chat_profile=user).order_by('chated_at')
-    # wedk = Support.objects.filter(chat_profile=user).first()
-    
-    if request.method == 'POST':
-        forms = Chat(request.POST, instance=user)
-        sp_msg = forms.data.get('chat_message')
-        
-        if forms.is_valid():
-            # if first_date == 'support':
-            #     messages.warning(request, 'Date not existing')
-            # else:
-            #     messages.warning(request, 'Date existing')
-
-            profile_msg = Support.objects.create(chat_profile=user, chat_message=sp_msg, message_type='User')
-            forms.user = profile_msg
-            forms.save()
-            return redirect('support')
-
     context = {
-        'spform':spform,
-        'support':support,
-        # 'wedk':wedk,
+        'profile':user,
     }
     return render(request, 'gainisis/support.html', context)
 

@@ -1,5 +1,5 @@
 {% load static %}
-<div class="py-2 bg-body-tertiary">
+<div class="py-2 bg-body-tertiary z-2">
     <div class="container d-sm-flex align-items-center">
         <p class="lead m-0 lh-1 mb-3 mb-sm-0 bg-body-warning"><em>Welcome to Gainisis, we make you gain more!</em></p>
         <div class="d-flex align-items-center gap-2 justify-content-center ms-auto ps-4">
@@ -19,7 +19,7 @@
                     <button type="button" class="btn btn-primary btn-md px-4 me-md-2">Register</button>
                 </a>
             {% endif %}
-            <div class="nav-item dropdown ms-2 btn btn-md px-2 border rounded-3 gap-1 d-flex flex-nowrap">
+            <!-- <div class="nav-item dropdown ms-2 btn btn-md px-2 border rounded-3 gap-1 d-flex flex-nowrap">
                 <span class="iconify" data-icon="system-uicons:globe" data-inline="false" style="font-size: 24px;"></span>
                 <a class="nav-link dropdown-toggle px-1" href="#" data-bs-toggle="dropdown"> English </a>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -27,12 +27,12 @@
                     <li class="dropdown-item" onclick="changeLanguage('fr')">French</li>
                     <li class="dropdown-item" onclick="changeLanguage('de')">German</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
 
-<nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-white">
+<nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-white z-2">
     <div class="container">
         <a class="navbar-brand text-dark" href="{% url 'index' %}">Gainisis</a>
         <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">

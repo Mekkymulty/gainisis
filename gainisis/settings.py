@@ -14,8 +14,8 @@ import os
 from pathlib import Path
 
 # # DOTENV
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +31,7 @@ SECRET_KEY = str(os.getenv('MEKGAIN_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['3.86.85.194', 'localhost']
+ALLOWED_HOSTS = ['3.86.85.194', 'localhost',]
 
 
 # Application definition

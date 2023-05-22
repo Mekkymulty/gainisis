@@ -8,7 +8,7 @@
                     {% if profile.profile_pic %}
                         <img src="{{profile.profile_pic.url}}" alt="" class="person-img">
                     {% else %}
-                        <img src="{% static 'img/user.jpg' %}" alt="" class="person-img">
+                        <img src="{% static 'img/user-profile.png' %}" alt="" class="person-img">
                     {% endif %}
                 </a>
             {% else %}
@@ -34,7 +34,12 @@
 
 <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-white z-2">
     <div class="container">
-        <a class="navbar-brand text-dark" href="{% url 'index' %}">Gainisis</a>
+        <div class="d-flex align-items-center gap-2">
+            <div class="flex-shrink-0">
+                <img src="{% static 'img/gain logo.png' %}" alt="" width="25" style="position: relative;">
+            </div>
+            <a class="navbar-brand text-dark p-0" href="{% url 'index' %}">Gainisis</a>
+        </div>
         <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

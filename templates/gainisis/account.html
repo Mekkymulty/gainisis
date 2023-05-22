@@ -20,7 +20,7 @@
                                 {% if profile.profile_pic %}
                                     <img src="{{profile.profile_pic.url}}" alt="" class="person-img">
                                 {% else %}
-                                    <img src="{% static 'img/user.jpg' %}" alt="" class="person-img">
+                                    <img src="{% static 'img/user-profile.png' %}" alt="" class="person-img">
                                 {% endif %}
                             </div>
                             <p class="lead m-0 fw-bold text-truncate">{{profile.username | title}}</p>

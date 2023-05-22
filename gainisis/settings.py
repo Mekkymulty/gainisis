@@ -31,7 +31,7 @@ SECRET_KEY = str(os.getenv('MEKGAIN_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['54.227.17.13', 'localhost',]
+ALLOWED_HOSTS = ['54.86.201.216', 'localhost',]
 
 
 # Application definition

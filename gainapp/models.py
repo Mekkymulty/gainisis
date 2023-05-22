@@ -13,7 +13,6 @@ class Profile(models.Model):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
     profile_pic = models.ImageField(upload_to='profile', null=True, blank=True)
-    referral = models.CharField(max_length=255, null=True, blank=True)
     user_wal_btc = models.CharField(max_length=255, null=True, blank=True)
     user_wal_eth = models.CharField(max_length=255, null=True, blank=True)
     user_wal_doge = models.CharField(max_length=255, null=True, blank=True)

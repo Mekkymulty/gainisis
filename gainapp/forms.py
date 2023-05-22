@@ -9,10 +9,9 @@ class CreateProfile(forms.ModelForm):
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),label='Password')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),label='Confirm Password')
-    referral = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),label='Referral (optional)',required=False)
     class Meta:
         model = Profile
-        fields = ['username', 'email', 'password', 'password2', 'referral']
+        fields = ['username', 'email', 'password', 'password2',]
         
 class UpdateUser(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))

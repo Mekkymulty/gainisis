@@ -31,7 +31,7 @@ SECRET_KEY = str(os.getenv('MEKGAIN_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.gainisis.com', '54.86.201.216', 'localhost',]
+ALLOWED_HOSTS = ['www.gainisis.com', '54.152.198.133', 'localhost', '172-31-91-74']
 
 
 # Application definition
